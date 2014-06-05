@@ -16,6 +16,16 @@ int main(int argc, const char * argv[])
         
         Logger *logger = [[Logger alloc]init];
         
+        NSURL *url = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        __unused NSURLConnection *fetchConn = [[NSURLConnection alloc]
+                                               initWithRequest:request
+                                               delegate:logger
+                                               startImmediately:YES];
+        
+        
         __unused NSTimer *timer = [NSTimer
                           scheduledTimerWithTimeInterval:2.0
                           target:logger
