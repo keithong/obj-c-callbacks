@@ -16,6 +16,12 @@ int main(int argc, const char * argv[])
         
         Logger *logger = [[Logger alloc]init];
         
+        [[NSNotificationCenter defaultCenter]
+                                                addObserver:logger
+                                                    selector:@selector(zoneChange:)
+                                                        name:NSSystemTimeZoneDidChangeNotification
+                                                            object:nil];
+        
         NSURL *url = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];

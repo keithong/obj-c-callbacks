@@ -48,4 +48,9 @@
     NSLog(@"Connection failed: %@",[error localizedDescription]);
     incomingData = nil;
 }
+
+-(void)zoneChange:(NSNotification *)note
+{
+    NSLog(@"The system time zone has changed!");
+}
 @end
